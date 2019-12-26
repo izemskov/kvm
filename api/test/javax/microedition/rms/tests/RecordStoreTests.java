@@ -20,4 +20,14 @@ public class RecordStoreTests {
         RecordStore openRecordStore = RecordStore.openRecordStore("test", true);
         Assert.assertNotNull(openRecordStore);
     }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void test2() {
+        RecordStore.openRecordStore("", true);        
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void test3() {
+        RecordStore.openRecordStore("123456789012345678901234567890123", true);        
+    }
 }
